@@ -28,10 +28,12 @@ class List extends React.Component {
         fetch(`${API_URL}/cryptocurrencies?page=${page}&perPage=20`)
         .then(handleResponse)
         .then((data) => {
-        this.setState({
-            currencies: data.currencies, 
-            loading: false
-        });
+            const { currencies, totalPages } = data;
+            this.setState({
+                currencies: currencies, 
+                totalPages: totalPages,
+                loading: false
+            });
     })
     .catch((error) => {
         this.setState({
@@ -57,7 +59,7 @@ class List extends React.Component {
         const error = this.state.error;
         const currencies = this.state.currencies;*/
 
-        const { loading, error, currencies } = this.state;
+        const { loading, error, currencies, page, totalPages } = this.state;
 
         // render only loading component, if loading state is set to true
         if(loading){
@@ -72,7 +74,7 @@ class List extends React.Component {
         return (
             <div>
             <Table currencies={currencies} renderChangePercent={this.renderChangePercent}/>
-            <Pagination />
+            <Pagination page={page} totalPages={totalPages}/>
             </div>
         );
     }
