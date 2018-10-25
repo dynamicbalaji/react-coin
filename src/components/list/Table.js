@@ -1,7 +1,7 @@
 import React from 'react';
 import './Table.css';
 
-const Table = () => {
+const Table = (props) => {
     return (
     <div className="Table-container"> 
             <table className="Table">
@@ -14,7 +14,7 @@ const Table = () => {
                 </tr>    
               </thead>
               <tbody className="Table-body">
-              {currencies.map((currency) => (
+              {props.currencies.map((currency) => (
                 <tr key={currency.id}>
                   <td>
                     <span className="Table-rank">{currency.rank}</span>

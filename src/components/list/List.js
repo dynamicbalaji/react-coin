@@ -66,7 +66,7 @@ class List extends React.Component {
         }
 
         return (
-            <Table/>
+            <Table currencies={currencies}/>
         );
     }
 }
