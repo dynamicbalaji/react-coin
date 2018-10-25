@@ -70,7 +70,10 @@ class List extends React.Component {
         }
 
         return (
+            <div>
             <Table currencies={currencies} renderChangePercent={this.renderChangePercent}/>
+            <Pagination />
+            </div>
         );
     }
 }

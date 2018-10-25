@@ -8,7 +8,7 @@ const Pagination = () => {
             &larr;
             </button>
             <button className="Pagination-button">
-            &garr;
+            &rarr;
             </button>
         </div>
     );
