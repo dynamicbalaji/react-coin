@@ -7,7 +7,7 @@ class List extends React.Component {
         super();
 
         this.state = {
-            loading: true,
+            loading: false,
             currencies: [],
             error: null
         };
@@ -15,6 +15,7 @@ class List extends React.Component {
 
     // best place to include AJAX calls, event listeners and mutating DOM
     componentDidMount(){
+        this.setState({loading: true});
         fetch('https://api.udilia.com/coins/v1/cryptocurrencies?page=1&perPage=20')
         .then(response => {
         return response.json().then(json => {
@@ -22,14 +23,21 @@ class List extends React.Component {
         });
         })
         .then((data) => {
-        console.log('Success', data);
-        })
-        .catch((error) => {
-        console.log('Error', error);
+        this.setState({
+            currencies: data.currencies, 
+            loading: false
+        });
+    })
+    .catch((error) => {
+        this.setState({
+            error: error.errorMessage, 
+            loading: false
+            });
         });
     }
 
     render() {
+        console.log(this.state);
         if(this.state.loading){
             return <div>Loading...</div>;
         }
