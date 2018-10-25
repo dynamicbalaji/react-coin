@@ -29,7 +29,7 @@ const Table = (props) => {
                     {currency.marketCap}
                   </td>
                   <td>
-                      {this.renderChangePercent(currency.percentChange24h)}
+                      {props.renderChangePercent(currency.percentChange24h)}
                   </td>
                 </tr>
               ))}
