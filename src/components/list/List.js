@@ -2,6 +2,7 @@ import React from 'react';
 // Importing with {} because its just normal 'export' and not 'export default'
 import { handleResponse } from '../../helpers';
 import { API_URL } from '../../config';
+import Loading from '../common/Loading';
 
 class List extends React.Component {
     // Everytime we create a class constructor, we need to call super if they are sub classes
@@ -48,7 +49,7 @@ class List extends React.Component {
     render() {
         console.log(this.state);
         if(this.state.loading){
-            return <div>Loading...</div>;
+            return <div className="loading-container"><Loading /></div>;
         }
 
         return (
