@@ -35,6 +35,16 @@ class List extends React.Component {
         });
     }
 
+    renderChangePercent(percent) {
+        if (percent > 0) {
+          return <span className="percent-raised">{percent}% &uarr;</span>
+        } else if (percent < 0) {
+          return <span className="percent-fallen">{percent}% &darr;</span>
+        } else {
+          return <span>{percent}</span>
+        }
+    }
+
     render() {
         console.log(this.state);
         if(this.state.loading){
@@ -64,6 +74,9 @@ class List extends React.Component {
                   </td>
                   <td>
                     <span className="Table-dollar">$ {currency.marketCap}</span>
+                  </td>
+                  <td>
+                      {this.renderChangePercent(currency.percentChange24h)}
                   </td>
                 </tr>
               ))}
