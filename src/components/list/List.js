@@ -1,4 +1,6 @@
 import React from 'react';
+// Importing with {} because its just normal 'export' and not 'export default'
+import { handleResponse } from '../../helpers';
 
 class List extends React.Component {
     // Everytime we create a class constructor, we need to call super if they are sub classes
@@ -17,11 +19,7 @@ class List extends React.Component {
     componentDidMount(){
         this.setState({loading: true});
         fetch('https://api.udilia.com/coins/v1/cryptocurrencies?page=1&perPage=20')
-        .then(response => {
-        return response.json().then(json => {
-            return response.ok ? json : Promise.reject(json);
-        });
-        })
+        .then(handleResponse)
         .then((data) => {
         this.setState({
             currencies: data.currencies, 
