@@ -14,14 +14,17 @@ class List extends React.Component {
         this.state = {
             loading: false,
             currencies: [],
-            error: null
+            error: null,
+            totalPages: 0,
+            page: 1
         };
     }
 
     // best place to include AJAX calls, event listeners and mutating DOM
     componentDidMount(){
         this.setState({loading: true});
-        fetch(`${API_URL}/cryptocurrencies?page=1&perPage=20`)
+        const { page } = this.state;
+        fetch(`${API_URL}/cryptocurrencies?page=${page}&perPage=20`)
         .then(handleResponse)
         .then((data) => {
         this.setState({
