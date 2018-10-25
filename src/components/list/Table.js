@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './Table.css';
 
 const Table = (props) => {
@@ -38,5 +39,10 @@ const Table = (props) => {
             </table>
           </div>
 )};
+
+Table.PropTypes = {
+    currencies: PropTypes.array.isRequired,
+    renderChangePercent: PropTypes.func.isRequired
+};
 
 export default Table;
