@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Header from './components/common/Header';
 import './index.css';
+import List from './components/list/List';
 
 // ES5 JS Function - So, this component is called Functional Component
 // In JSX, Use 'className' instead of 'class' as class is a reserved keyword in JS
@@ -11,8 +12,7 @@ const App = () => {
     return (
         <div>
             <Header/>
-            <h1>React Coin</h1>
-            <p>Up to date crypo currencies financial data</p>
+            <List/>
         </div>
     );
 }
