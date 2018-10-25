@@ -48,9 +48,11 @@ class List extends React.Component {
 
     render() {
         console.log(this.state);
-        const loading = this.state.loading;
+        /*const loading = this.state.loading;
         const error = this.state.error;
-        const currencies = this.state.currencies;
+        const currencies = this.state.currencies;*/
+
+        const { loading, error, currencies } = this.state;
 
         // render only loading component, if loading state is set to true
         if(loading){
