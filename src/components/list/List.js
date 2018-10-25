@@ -42,7 +42,11 @@ class List extends React.Component {
         }
 
         return (
-            <div>text</div>
+            <div>
+                {this.state.currencies.map((currency) => (
+                    <div key={currency.id}>{currency.id}</div>
+                ))}
+            </div>
         );
     }
 }
