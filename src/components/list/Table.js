@@ -2,6 +2,7 @@ import React from 'react';
 import './Table.css';
 
 const Table = (props) => {
+    const { currencies, renderChangePercent } = props;
     return (
     <div className="Table-container"> 
             <table className="Table">
@@ -14,7 +15,7 @@ const Table = (props) => {
                 </tr>    
               </thead>
               <tbody className="Table-body">
-              {props.currencies.map((currency) => (
+              {currencies.map((currency) => (
                 <tr key={currency.id}>
                   <td>
                     <span className="Table-rank">{currency.rank}</span>
@@ -29,7 +30,7 @@ const Table = (props) => {
                     {currency.marketCap}
                   </td>
                   <td>
-                      {props.renderChangePercent(currency.percentChange24h)}
+                      {renderChangePercent(currency.percentChange24h)}
                   </td>
                 </tr>
               ))}
