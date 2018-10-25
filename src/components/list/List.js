@@ -4,6 +4,7 @@ import { handleResponse } from '../../helpers';
 import { API_URL } from '../../config';
 import Loading from '../common/Loading';
 import Table from './Table';
+import Pagination from './Pagination';
 
 class List extends React.Component {
     // Everytime we create a class constructor, we need to call super if they are sub classes
