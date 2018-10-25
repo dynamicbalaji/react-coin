@@ -48,8 +48,14 @@ class List extends React.Component {
 
     render() {
         console.log(this.state);
+        // render only loading component, if loading state is set to true
         if(this.state.loading){
             return <div className="loading-container"><Loading /></div>;
+        }
+
+        // render only error message, if error occurred while fetching data
+        if(this.state.error){
+            return <div className="error">{this.state.error}</div>;
         }
 
         return (
