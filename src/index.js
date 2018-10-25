@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Header from './components/common/Header';
+import './index.css';
 
 // ES5 JS Function - So, this component is called Functional Component
 // In JSX, Use 'className' instead of 'class' as class is a reserved keyword in JS
