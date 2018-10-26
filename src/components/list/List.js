@@ -27,6 +27,10 @@ class List extends React.Component {
 
     // best place to include AJAX calls, event listeners and mutating DOM
     componentDidMount(){
+        this.fetchCurrencies();
+    }
+
+    fetchCurrencies(){
         this.setState({loading: true});
         const { page } = this.state;
         fetch(`${API_URL}/cryptocurrencies?page=${page}&perPage=20`)
