@@ -9,8 +9,10 @@ class Search extends React.Component{
         super();
 
         this.state = {
+            searchResult: [],
             searchQuery: '',
-            loading: false
+            loading: false,
+            error: null
         };
 
         this.handleChange = this.handleChange.bind(this);
@@ -29,12 +31,16 @@ class Search extends React.Component{
         fetch(`${API_URL}/autocomplete?searchQuery=${this.state.searchQuery}`)
         .then(handleResponse)
         .then((data) => {
-            this.setState({ loading: false });
-            console.log('Success', data);
+            this.setState({ 
+                loading: false,
+                searchResult: data
+             });
         })
         .catch((error) => {
-            this.setState({ loading: false });
-            console.log('Error', error);
+            this.setState({ 
+                loading: false,
+                error: error.errorMessage
+            });
         });
     }
 
