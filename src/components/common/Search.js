@@ -1,4 +1,5 @@
 import React from 'react';
+import Loading from '../common/Loading';
 import './Search.css';
 import { API_URL } from '../../config';
 import { handleResponse } from '../../helpers';
@@ -45,6 +46,10 @@ class Search extends React.Component{
                 placeholder="Currency Name"
                 onChange={this.handleChange}
                 />
+
+                <div className="Search-loading">
+                    <Loading />
+                </div>
             </div>
         );
     }
