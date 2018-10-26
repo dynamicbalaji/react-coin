@@ -34,9 +34,9 @@ class Search extends React.Component{
 
     render(){
         return (
-            <form>
+            <div>
                 <input onChange={this.handleChange}/>
-            </form>
+            </div>
         );
     }
 }
