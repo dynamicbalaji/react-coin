@@ -19,6 +19,10 @@ class List extends React.Component {
             totalPages: 0,
             page: 1
         };
+
+        // Binding 'this' so that it will be available inside handlePaginationClick method
+        //  while calling from other component
+        this.handlePaginationClick = this.handlePaginationClick.bind(this);
     }
 
     // best place to include AJAX calls, event listeners and mutating DOM
