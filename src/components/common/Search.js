@@ -17,6 +17,8 @@ class Search extends React.Component{
     handleChange(event){
         const searchQuery = event.target.value;
 
+        this.setState({searchQuery});
+
         // If searchQuery isn't present, don't send request to server
         if (!searchQuery) {
             return '';
@@ -34,8 +36,15 @@ class Search extends React.Component{
 
     render(){
         return (
-            <div>
-                <input onChange={this.handleChange}/>
+            <div className="Search">
+                <span className="Search-icon" />
+        
+                <input
+                className="Search-input"
+                type="text"
+                placeholder="Currency Name"
+                onChange={this.handleChange}
+                />
             </div>
         );
     }
