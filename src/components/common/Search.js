@@ -48,7 +48,10 @@ class Search extends React.Component{
                 />
 
                 <div className="Search-loading">
-                    <Loading />
+                    <Loading
+                    width='12px'
+                    height='12px'
+                    />
                 </div>
             </div>
         );
