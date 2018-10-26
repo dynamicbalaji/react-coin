@@ -14,12 +14,13 @@ To do prod build
 npm run build
 `
 
-### Serving as a normal app
+## Installing Static Server
 To install static server
 `
 npm i -g serve
 `
 
+### Serving as a normal app
 To start the static server & publish build app
 `
 serve build
@@ -36,3 +37,10 @@ serve -s build
 `
 
 Now we can hit any page in the application and it will be served properly without throwing 404 error.
+
+## Installing Dynamic Server
+To install dynamic server 'express'
+`npm i express --save`
+
+### Serving app on dynamic server
+Run command `node server.js` and hit http://localhost:9000 
