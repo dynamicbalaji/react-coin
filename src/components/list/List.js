@@ -68,6 +68,7 @@ class List extends React.Component {
         nextPage = direction === 'next' ? nextPage+1 : nextPage-1;
 
         this.setState({page: nextPage});
+        this.fetchCurrencies();
     }
 
     render() {
