@@ -1,5 +1,7 @@
 import React from 'react';
 import './Search.css';
+import { API_URL } from '../../config';
+import { handleResponse } from '../../helpers';
 
 class Search extends React.Component{
     constructor(){
@@ -13,10 +15,21 @@ class Search extends React.Component{
     }
 
     handleChange(event){
-        const inputValue = event.target.value;
+        const searchQuery = event.target.value;
 
-        this.setState({searchQuery: inputValue});
-        console.log(this.state);
+        // If searchQuery isn't present, don't send request to server
+        if (!searchQuery) {
+            return '';
+        }
+
+        fetch(`${API_URL}/autocomplete?searchQuery=${this.state.searchQuery}`)
+        .then(handleResponse)
+        .then((data) => {
+            console.log('Success', data);
+        })
+        .catch((error) => {
+            console.log('Error', error);
+        });
     }
 
     render(){
