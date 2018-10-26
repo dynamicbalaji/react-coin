@@ -9,7 +9,8 @@ class Search extends React.Component{
         super();
 
         this.state = {
-            searchQuery: ''
+            searchQuery: '',
+            loading: false
         };
 
         this.handleChange = this.handleChange.bind(this);
@@ -24,18 +25,22 @@ class Search extends React.Component{
         if (!searchQuery) {
             return '';
         }
-
+        this.setState({ loading: true });
         fetch(`${API_URL}/autocomplete?searchQuery=${this.state.searchQuery}`)
         .then(handleResponse)
         .then((data) => {
+            this.setState({ loading: false });
             console.log('Success', data);
         })
         .catch((error) => {
+            this.setState({ loading: false });
             console.log('Error', error);
         });
     }
 
     render(){
+        const { loading } = this.state;
+
         return (
             <div className="Search">
                 <span className="Search-icon" />
@@ -47,12 +52,14 @@ class Search extends React.Component{
                 onChange={this.handleChange}
                 />
 
-                <div className="Search-loading">
+                { loading && 
+                    <div className="Search-loading">
                     <Loading
                     width='12px'
                     height='12px'
                     />
-                </div>
+                    </div>
+                }
             </div>
         );
     }
