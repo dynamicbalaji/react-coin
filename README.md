@@ -44,3 +44,21 @@ To install dynamic server 'express'
 
 ### Serving app on dynamic server
 Run command `node server.js` and hit http://localhost:9000 
+
+## Installing in Heroku
+### Creating app in Heroku
+Use command
+
+`
+heroku create react-coin3 --buildpack https://github.com/mars/create-react-app-buildpack.git
+`
+
+in the location of the project. You will receive message as
+
+```
+Creating ⬢ react-coin3... done
+Setting buildpack to https://github.com/mars/create-react-app-buildpack.git... done
+https://react-coin3.herokuapp.com/ | https://git.heroku.com/react-coin3.git
+```
+
+Now, the url allocated to our application is https://react-coin3.herokuapp.com/ and you will receive default welcome page if you hit it now
