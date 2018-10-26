@@ -45,20 +45,36 @@ class Search extends React.Component{
     }
 
     renderSearchResults(){
-        const { searchResult } = this.state;
+        const { searchResult, searchQuery, loading } = this.state;
 
-        return (
-            <div className="Search-result-container">
-          {searchResult.map(result => (
-            <div
-              key={result.id}
-              className="Search-result"
-            >
-              {result.name} ({result.symbol})
+        if(!searchQuery){
+            return '';
+        }
+
+        if(searchResult.length > 0){
+            return (
+                <div className="Search-result-container">
+            {searchResult.map(result => (
+                <div
+                key={result.id}
+                className="Search-result"
+                >
+                {result.name} ({result.symbol})
+                </div>
+            ))}
             </div>
-          ))}
-        </div>
-        );
+            );
+        }
+
+        if(!loading){
+            return (
+                <div className="Search-result-container">
+                  <div className="Search-no-result">
+                    No results found.
+                  </div>
+                </div>
+              );
+        }
     }
 
     render(){
