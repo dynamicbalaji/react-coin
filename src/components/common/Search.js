@@ -44,6 +44,23 @@ class Search extends React.Component{
         });
     }
 
+    renderSearchResults(){
+        const { searchResult } = this.state;
+
+        return (
+            <div className="Search-result-container">
+          {searchResult.map(result => (
+            <div
+              key={result.id}
+              className="Search-result"
+            >
+              {result.name} ({result.symbol})
+            </div>
+          ))}
+        </div>
+        );
+    }
+
     render(){
         const { loading } = this.state;
 
@@ -66,6 +83,8 @@ class Search extends React.Component{
                     />
                     </div>
                 }
+
+                {this.renderSearchResults()}
             </div>
         );
     }
