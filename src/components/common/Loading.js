@@ -9,9 +9,14 @@ const Loading = (props) => {
         style={{ width, height }}/>;
 }
 
+Loading.defaultProps = {
+    width: '28px',
+    height: '28px'
+}
+
 Loading.PropTypes = {
-    width: PropTypes.string.isRequired,
-    height: PropTypes.string.isRequired
+    width: PropTypes.string,
+    height: PropTypes.string
 };
 
 export default Loading;
