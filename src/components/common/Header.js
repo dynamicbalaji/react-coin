@@ -9,8 +9,8 @@ const Header = () => {
     return (<div className="Header">
         <Link to="/">
             <img src={logo} alt="logo" className="Header-logo"/>
-            <Search/>
         </Link>
+        <Search/>
     </div>
     );
 }
