@@ -92,7 +92,7 @@ class Search extends React.Component{
     }
 
     render(){
-        const { loading } = this.state;
+        const { loading, searchQuery } = this.state;
 
         return (
             <div className="Search">
@@ -103,6 +103,7 @@ class Search extends React.Component{
                 type="text"
                 placeholder="Currency Name"
                 onChange={this.handleChange}
+                value={searchQuery}
                 />
 
                 { loading && 
