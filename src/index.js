@@ -5,6 +5,7 @@ import Header from './components/common/Header';
 import './index.css';
 import List from './components/list/List';
 import NotFound from './components/notfound/NotFound';
+import Detail from './components/detail/Detail';
 
 // ES5 JS Function - So, this component is called Functional Component
 // In JSX, Use 'className' instead of 'class' as class is a reserved keyword in JS
@@ -17,7 +18,7 @@ const App = () => {
                 <Header/>
                 <Switch>
                     <Route path="/" component={List} exact/>
-
+                    <Route path="/currency/:id" component={Detail} exact/>
                     <Route component={NotFound}/>
                 </Switch>
             </div>
