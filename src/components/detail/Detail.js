@@ -1,7 +1,7 @@
 import React from 'react';
 import './Detail.css';
 import { API_URL } from '../../config';
-import { handleResponse } from '../../helpers';
+import { handleResponse, renderChangePercent } from '../../helpers';
 import Loading from '../common/Loading';
 
 class Detail extends React.Component {
@@ -60,7 +60,7 @@ class Detail extends React.Component {
           </div>
           <div className="Detail-item">
             24H Change
-            <span className="Detail-value"></span>
+            <span className="Detail-value">{renderChangePercent(currency.percentChange24h)}</span>
           </div>
           <div className="Detail-item">
             <span className="Detail-title">Market cap</span>
