@@ -24,11 +24,12 @@ class Search extends React.Component{
         const inputName = event.target.name;
         const inputValue = event.target.value;
 
-        if(inputName === 'searchQuery') {
+        this.setState({[inputName]: inputValue});
+        /*if(inputName === 'searchQuery') {
             this.setState({searchQuery: inputValue});
         } else if (inputName === 'firstName') {
             this.setState({firstName: inputValue});
-        }
+        }*/
     }
 
     render(){
