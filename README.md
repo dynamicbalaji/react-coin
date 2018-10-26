@@ -62,3 +62,25 @@ https://react-coin3.herokuapp.com/ | https://git.heroku.com/react-coin3.git
 ```
 
 Now, the url allocated to our application is https://react-coin3.herokuapp.com/ and you will receive default welcome page if you hit it now
+
+### Deploying app to Heroku
+```
+git add -A
+
+git commit -m "Initial commit to Heroku"
+
+git push heroku master
+```
+
+Now, if you hit https://react-coin3.herokuapp.com/ application will be loaded. But we will get same 404 error when trying to load the app from any page other than base page.
+
+In order to fix this, we have to add `static.json` file with below content
+
+```
+{
+    "root": "build/",
+    "routes":{
+        "/**": "index.html"
+    }
+}
+```
