@@ -84,3 +84,58 @@ In order to fix this, we have to add `static.json` file with below content
     }
 }
 ```
+
+## Installing in Now
+'Now' is one of the easiest way to deploy node.js or docker  powered web applications to cloud.
+
+### Installing Now globally
+
+```
+npm i -g now
+
+now login balaji@gmail.com
+```
+### Deploying static app in Now
+```
+
+npm run build
+
+cd build/
+
+now
+```
+
+After running these commands, you will receive below message which contains auto generated url https://build-ugbcvpuhag.now.sh to access the application.
+
+```
+> Deploying ~\Documents\GitHub\react-coin\build under dynamicbalaji4u@gmail.com
+> Your deployment's code and logs will be publicly accessible because you are subscribed to the OSS plan.
+
+> NOTE: You can use `now --public` or upgrade your plan (https://zeit.co/account/plan) to skip this prompt
+> Synced 7 files (1002.81KB) [3s]
+> https://build-ugbcvpuhag.now.sh [in clipboard] [1s]
+> Deployment complete!
+```
+
+Note: Our source code will be publicly accessible using url https://build-ugbcvpuhag.now.sh/_src because of OSS plan subscription. If it needs to private, then plan needs to be upgraded.
+
+### Deploying dynamic app in Now
+Remove the static app that is deployed already using below commands.
+```
+now ls  // Displays all our deployments
+
+now remove build-ugbcvpuhag.now.sh  // Remove old app
+
+```
+
+Now, deploy serve as a dependency inside *build* folder
+
+```
+npm i --save serve
+
+cd ..   // Come out from build folder to root folder of app
+
+now
+```
+
+The dynamic app is build & deployed and it is accessible at url https://react-coin-bvapxsoklv.now.sh 
